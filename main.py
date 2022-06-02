@@ -12,7 +12,7 @@ from xarray import Dataset
 plt.style.use('fivethirtyeight')
 
 #Get the dataframe
-df=web.DataReader("AAPL", data_source='yahoo', start='2012-05-15', end='2022-05-16')
+df=web.DataReader("ETH-USD", data_source='yahoo', start='2012-05-15', end='2022-06-02')
 #print(df)
 #Visualise
 plt.figure(figsize=(16,8))
@@ -93,7 +93,7 @@ plt.show()
 #Show Valid and Predicted Prices
 #print(valid)
 #Get the Quote
-apple_quote=web.DataReader("AAPL", data_source='yahoo', start='2012-05-15', end='2022-05-16')
+apple_quote=web.DataReader("ETH-USD", data_source='yahoo', start='2012-05-15', end='2022-06-02')
 newdf=apple_quote.filter(['Close'])
 last60day=newdf[-60:].values
 last60dayscaled=scaler.transform(last60day)
@@ -106,5 +106,5 @@ predprice=scaler.inverse_transform(predprice)
 print("Predicted Price ",predprice)
 
 #Get second Quote
-apple_quote2=web.DataReader("AAPL", data_source='yahoo', start='2022-05-17', end='2022-05-17')
-print("The Actual Price",apple_quote2['Close'][1])
+apple_quote2=web.DataReader("ETH-USD", data_source='yahoo', start='2022-05-30', end='2022-05-30')
+#print("The Actual Price",apple_quote2['Close'][1])
